@@ -1,0 +1,396 @@
+/* body{  
+    padding: 0;  
+    margin: 0;  
+    overflow:hidden; 
+    min-height: 1000px;
+    min-width: 1280px;
+    height: 100%; 
+    width: 100%;
+}   */
+body{
+	:global #app {
+        height: 100%;
+        width: 100%;
+    }
+    :global #app > div {
+        height: 100%;
+        width: 100%;
+        overflow:hidden; 
+    }
+}
+.all{
+	width: 100%;
+	min-height: 100%;
+	//height: 100%;
+	.btns{
+		width:20px;
+		position: absolute;
+		top:50%;
+		left:95%;
+		.btn{
+			background: #fff;
+			width: 14px;
+			height: 14px;
+			border-radius: 7px;
+			overflow: hidden;
+			border:0;
+			margin: 10px;
+			transition:all 1s ease-in-out;
+		}
+	}
+	.bottom{
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		text-align: center;
+		-webkit-transform: rotate(90deg);
+		transition:all 0.5s ease-in-out;
+		i{
+			color: #DEDEDE;
+			font-size: 40px;
+			margin-top: 5px;
+			color:#fff;
+		}
+	}
+	.bottom:hover{
+		i{
+			font-size: 50px;
+			margin-top: 0;
+		}
+	}
+	.one{
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		@keyframes btitle{
+			0% {top:-20px;}
+			//50% {top:25px;}
+			100% {top:50px;}
+		}
+		@keyframes love{
+			0% {bottom:-50px;}
+			100% {bottom:10px;}
+		}
+		@keyframes ico{
+			 0% {left:-20%;}
+			100% {left:35%;} 
+		}
+		.one-all{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			img{width: 100%;height: 100%;}
+		}
+		.title{
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			font-size:40px;
+			color:#ff0000;
+			font-family: "Gabriola";
+			transition:all ease-in-out;
+			animation:love 2s;
+			-webkit-animation:love 2s;
+			i{
+				font-size: 30px;
+			}
+		}
+		.time{
+			position: absolute;
+			top:30px;
+			left: 87%;
+			font-size: 50px;
+			font-family: "Gabriola";
+			color:#fff;
+		}
+		.icon{
+			position: absolute;
+			width: 100%;
+			height: 100px;
+			top: 45%;
+			left: 35%;
+			text-align: center;
+			transition:all ease-in-out;
+			animation:ico 2s;
+			-webkit-animation:ico 2s;
+			.home{
+				cursor: pointer;
+				width: 100px;
+				height: 100px;
+				margin-top: 5px;
+				margin-left: 45px;
+				border-radius: 50px;
+				border:2px solid #fff;
+				font-size: 50px;
+				padding: 10px;
+				padding-top: 20px;
+				text-align: center;
+				transition:all 0.5s ease-in-out;
+				float: left;
+				i{color: #c369ff;}
+			}
+			.home:hover{
+				margin-top: 0;
+				margin-left: 35px;
+				width: 120px;
+				height: 120px;
+				font-size: 60px;
+				font-weight: 600;
+				border-radius: 60px;
+
+			}
+			.star{
+				cursor: pointer;
+				width: 100px;
+				height: 100px;
+				margin-top: 5px;
+				margin-left: 45px;
+				border-radius: 50px;
+				border:2px solid #fff;
+				font-size: 50px;
+				padding: 10px;
+				padding-top: 20px;
+				text-align: center;
+				transition:all 0.5s ease-in-out;
+				float: left;
+				i{color: #ffcdc8;}
+			}
+			.star:hover{
+				margin-top: 0;
+				margin-left: 35px;
+				width: 120px;
+				height: 120px;
+				font-size: 60px;
+				font-weight: 600;
+				border-radius: 60px;
+			}
+			.imagebar{
+				cursor: pointer;
+				width: 100px;
+				height: 100px;
+				margin-top: 5px;
+				margin-left: 45px;
+				border-radius: 50px;
+				border:2px solid #fff;
+				font-size: 50px;
+				padding: 10px;
+				padding-top: 20px;
+				text-align: center;
+				transition:all 0.5s ease-in-out;
+				float: left;
+				i{color: #32a5ff;}
+			}
+			.imagebar:hover{
+				margin-top: 0;
+				margin-left: 35px;
+				width: 120px;
+				height: 120px;
+				font-size: 60px;
+				font-weight: 600;
+				border-radius: 60px;
+			}
+		}
+		.bigtitle{
+			position: absolute;
+			top: 50px;
+			color: #f88769;
+			font-size: 80px;
+			font-weight: 700;
+			font-family: "Gabriola";
+			padding-left: 70px;
+			//opacity: 0.8;
+			transition:all ease-in-out;
+			animation:btitle 2s;
+			-webkit-animation:btitle 2s;
+		}	
+	}	
+	.two{
+		display: none;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		.two-all{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			img{width: 100%;height: 100%;}
+			@keyframes her{
+				0% {left:-500px;}
+				100% {left:80px;}
+			}
+			@keyframes him{
+				0% {left:-250px;}
+				100% {left:350px;}
+			}
+			@keyframes cir{
+				0% {right:-20%;}
+				100% {right:20px;}
+			}
+			@keyframes tim{
+				0% {top:-200px;}
+				100% {top:30px;}
+			}
+			@keyframes cen{
+				0% {top:-200px;}
+				100% {top:35%;}
+			}
+			.img1{
+				position: absolute;
+				bottom: 20px;
+				left: 80px;
+				-webkit-transform:rotate(-20deg);
+				width: 250px;
+				height: 300px;
+				background: white;
+				padding: 10px;
+				animation:her 2s;
+				-webkit-animation:her 2s;
+			}
+
+			.img2{
+				position: absolute;
+				bottom: 20px;
+				left: 350px;
+				-webkit-transform:rotate(20deg);
+				animation:him 2s;
+				-webkit-animation:him 2s;
+				width: 250px;
+				height: 300px;
+				background: white;
+				padding: 10px;
+			}
+			
+			.circle{
+				position: absolute;
+				width: 360px;
+				height: 360px;
+				border-radius: 180px;
+				padding: 10px;
+				overflow: hidden;
+				background: white;
+				top: 40px;
+				right: 20px;
+				animation:cir 2s;
+				-webkit-animation:cir 2s;
+				img{width: 340px;height: 340px;border-radius: 170px;}
+			}
+			.time{
+				position: absolute;
+				padding: 20px;
+				top: 30px;
+				left: 50px;
+				border:2px solid #fff;
+				border-radius: 5px;
+				overflow: hidden;
+				animation:tim 2s;
+				-webkit-animation:tim 2s;
+			}
+			.center{
+				position: absolute;
+				top: 35%;
+				left: 45%;
+				width: 400px;
+				height: 300px;
+				padding: 10px;
+				background: white;
+				animation:cen 2s;
+				-webkit-animation:cen 2s;
+				-webkit-transform:rotate(-30deg);
+			}
+			.time_{
+				position: absolute;
+				bottom:45px;
+				right: 70px;
+				font-size: 50px;
+				font-family: "Gabriola";
+				color:#fff;
+			}
+			.bigtitle{
+				font-weight: 800;
+				font-size: 100px;
+				font-family: "Gabriola";
+				position: absolute;
+				top: 10%;
+				left: 38%;
+			}
+		}
+	}
+	.three{
+		display: none;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		.three-all{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			img{width: 100%;height: 100%;}
+			@keyframes more{
+				0% {top:-300px;}
+				100% {top: 25%;} 
+			}
+			.time{
+				position: absolute;
+				bottom:30px;
+				left: 83%;
+				font-size: 50px;
+				font-family: "Gabriola";
+				color:#fff;
+			}
+			.tip{
+				width: 600px;
+				height: 400px;
+				overflow: hidden;
+				position: absolute;
+				top: 25%;
+				left: 120px;
+				transition:all ease-in-out;
+				animation:more 3s;
+				-webkit-animation:more 3s;
+				.title{
+					font-family: "Gabriola";
+					font-size: 80px;
+					font-weight: 600;
+					text-align: center;
+					line-height: 100px;
+					color: #fff;
+				}
+				
+				.btn{
+					text-align: center;
+					button{
+						margin: 30px;
+						width: 100px;
+						height: 50px;
+						padding: 10px 20px;
+						font-size: 25px;
+						font-family: "Gabriola";
+						font-weight: 700;
+						margin-top: 80px;
+						background: #DEDEDE;
+						transition:all 0.5s ease-in-out;
+					}
+					button:hover{
+						background: #EDEDED;
+						width: 110px;
+						height: 55px;
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+	.four{
+		display: none;
+	}
+	.text{
+		font-size: 20px;
+		font-family: "Gabriola";
+		font-weight: 600;	
+		line-height: 30px;
+	}
+}

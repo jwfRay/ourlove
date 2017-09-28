@@ -1,0 +1,10 @@
+{
+  "extraBabelPlugins": [
+    "transform-runtime",
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "lib",
+      "style": true
+    }]
+  ]
+}
