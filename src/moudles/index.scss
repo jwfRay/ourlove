@@ -1,6 +1,5 @@
-.all{
-	width: 100%;
-	min-height: 100%;
+
+
 	.logo {
 	  font-size: 30px;
 	  font-weight: 800;
@@ -8,18 +7,19 @@
 	  height: 50px;
 	  text-align: center;
 	  overflow: hidden;
+	  font-family: "Gabriola";
 	  text-overflow: ellipsis;
-	  //background-color: rgb(64, 64, 64);
-	  background: #fff;
-	  //color: hsla(0,0%,100%,.67);
-	  color: rgb(64, 64, 64);
+	  background-color: #fff;
+	  color: #8669E9;
 	  border-bottom: 1px solid #B8cdEb;
 	}
+	.logo:hover{background-color: #f5f3fd;}
 	.headericon{
 		font-size: 22px;
 		line-height: 50px;
 		font-weight: 700;
 		margin-left: 20px;
+		cursor: pointer;
 		transition:color 0.2s linear;
 		transition:font-size 0.2s linear;
 	}
@@ -33,12 +33,12 @@
 		color:#000;
 		font-weight: 400;
 		margin-left: 20px;
+		font-family: "Gabriola";
 	}
 
 	
 
 
-}
 .theme1{color:#D2F5F0;}
 .theme2{color:#BEE4E4;}
 .theme3{color:#A4C3DC;}

@@ -1,11 +1,14 @@
 import React from 'react';
 import $ from 'jquery';
-import { Icon,Row,Col,Timeline,Button,Input,Modal,notification} from 'antd';
+import { Icon,Radio,Row,Col,Timeline,Button,Input,Modal,notification,message,Tabs} from 'antd';
 import {
   Link
 } from 'react-router';
 import CSSModules from 'react-css-modules';
 import styles from './styles.scss';
+const TabPane = Tabs.TabPane;
+const RadioGroup = Radio.Group;
+import axios from 'axios';
 @CSSModules(styles)
 export default class HOME extends React.Component {
 	static contextTypes = {
@@ -15,18 +18,18 @@ export default class HOME extends React.Component {
 		super(props,context);
 		this.state={
 			div:1,
-			visible1:false,
-			password:'',
-			text:''
 		};
 	};
 	componentDidMount(){
 		$('#btn'+this.state.div).css("background","#999");
 	};
-	componentWillUnmount(){	
+	componentWillMount(){
+		console.log(localStorage.quanxian);
+		if(localStorage.quanxian>0){
+			this.context.router.goBack();
+			message.warning('你没有权限放问该页面');
+		}
 	};
-	componentDidUpdate(){
-	}
 	handleWheel(e){
 		let y=e.deltaY;  
 		let div=this.state.div;  
@@ -62,69 +65,11 @@ export default class HOME extends React.Component {
 			});
 		}	
 	}
-	Yes(){
-		this.setState({
-			visible1:true
-		});
-	}
 	error() {
 	  Modal.error({
 	    title: '自己看着办........',
 	    content: '搓衣板已准备好........',
 	  });
-	}
-	openNotification1(type) {
-	  notification[type]({
-	    message: '你居然猜不到密码！！！！！',
-	    description: '桑心，本宝宝生气咯！！！！！！',
-	    duration:null,
-	  });
-	};
-	openNotification2(type) {
-	  notification[type]({
-	    message: '你居然不输入密码！！！！！',
-	    description: '桑心，本宝宝生气咯！！！！！！',
-	    duration:null,
-	  });
-	};
-	openNotification3(type) {
-	  notification[type]({
-	    message: '密码猜对啦！！！！！',
-	    description: '我的大阔爱就是棒棒！！！！！！',
-	    duration:null,
-	  });
-	};
-	handleOk1(){
-		if(this.state.password=="0425"){
-			this.openNotification3('success');
-			this.context.router.push(`/home`);
-			this.setState({
-				visible1:false
-			});
-		}else if(this.state.password==''){
-			this.setState({
-				visible1:false
-			});
-			this.openNotification2('warning');
-		}else{
-			this.setState({
-				visible1:false
-			});
-			this.openNotification1('warning');
-		}
-	}
-	handleCancel1(){
-		if(this.state.password==''){
-			this.openNotification2('warning');
-		}
-		this.setState({
-			visible1:false
-		});
-	}
-	passwordchange(e){
-		this.setState({
-			password:e.target.value
-		});
 	}
 	render(){
 		let myDate = new Date();
@@ -136,7 +81,7 @@ export default class HOME extends React.Component {
 		let One=()=>{
 			return(
 				<div styleName="one-all">
-					<img src={require('../lib/6.jpg')} alt='icon'></img>
+					<img src={require('../lib/17.jpg')} alt='icon'></img>
 					<span styleName="title"><Icon type="heart-o" />&nbsp;&nbsp;I just do not understand love you just met!</span>
 					<span styleName="time">{date}</span>
 					<p styleName="bigtitle">big  cute · small cute</p>
@@ -175,7 +120,7 @@ export default class HOME extends React.Component {
 					<img src={require('../lib/18.jpg')} alt='icon'></img>
 					<div styleName="tip">
 						<p styleName="title">Want to see more of it?</p>
-						<p id="queding" styleName="btn"><Button onClick={this.Yes.bind(this)}>YES</Button><Button onClick={this.error.bind(this)}>NO</Button></p>
+						<p id="queding" styleName="btn"><Link to="/home"><Button>YES</Button></Link><Button onClick={this.error.bind(this)}>NO</Button></p>
 					</div>
 					<span styleName="time">{date}</span>
 				</div>
@@ -195,15 +140,6 @@ export default class HOME extends React.Component {
 			    <div styleName="bottom" onClick={this.Bottom.bind(this)}>
 			    	<Icon type="double-right" />
 			    </div>
-			    <Modal
-		          title="输入密码哟！"
-		          visible={this.state.visible1}
-		          onOk={this.handleOk1.bind(this)}
-		          onCancel={this.handleCancel1.bind(this)}
-		       	  >
-		          <Input type="password" onChange={this.passwordchange.bind(this)} placeholder="密码自己猜！" />
-		          <p styleName="text">{this.state.text}</p>
-		        </Modal>
 		    </div>
 			
 		);

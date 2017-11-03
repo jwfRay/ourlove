@@ -1,6 +1,4 @@
-
 var webpack = require('webpack');
-
 module.exports = {
     entry: {
         isearch: [
@@ -21,6 +19,10 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.css$/, loader: 'style!css'},
+            {
+                test: /\.less$/,
+                loader: 'style-loader!css-loader!less-loader' 
+            },
             {
                 test: /\.scss$/,
                 loaders: [
@@ -47,6 +49,6 @@ module.exports = {
     },
      plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.ProvidePlugin({$:"jquery",jQuery:"jquery","window.jQuery":"jquery"})
+    new webpack.ProvidePlugin({$:"jquery",jQuery:"jquery","window.jQuery":"jquery"}),
   ],
 };
