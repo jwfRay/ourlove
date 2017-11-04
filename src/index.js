@@ -27,10 +27,9 @@ ReactDOM.render((
 			<Route component={Image} path="/image"></Route>
 			<Route component={Memorial} path="/memorial"></Route>
 			<Route component={Collection} path="/collection"></Route>
-			<Route component={Study} path="/study"></Route>
-			<Route component={Note} path='/study/note/:noteid'></Route>
-			<Route component={AddNote} path='/study/addnote'></Route>
-			{/*<Route component={ Topic } path='/user/topic/:tabId'/>*/}
+			<Route component={Study} path="/list"></Route>
+			<Route component={Note} path='/list/:noteid'></Route>
+			<Route component={AddNote} path='/addnote'></Route>
 		</Route>
 	</Router>
 ),document.getElementById('app'));

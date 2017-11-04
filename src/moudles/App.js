@@ -58,17 +58,7 @@ export default class App extends React.Component {
     }
     render() {
     	const isActive = this.context.router.isActive;
-    	let curSelect = classNames({
-	      home: isActive('/home'),
-	      image:isActive('/image'),
-	      collection:isActive('/collection'),
-	      memorial:isActive('/memorial'),
-	      study:isActive('/study')||isActive('/study/addnote')||(!!this.props.params.noteid)
-	    });
-	    let curSelectstudy = classNames({
-	      study:isActive('/study')||isActive('/study/addnote')||(!!this.props.params.noteid)
-	    });
-	    curSelect='.$'+curSelect;
+    	console.log(localStorage.quanxian);
 	    let myDate = new Date();
 	    let month=myDate.getMonth()+1;
 	    let day=myDate.getDate();
@@ -76,10 +66,19 @@ export default class App extends React.Component {
 	    if(day>=0 && day<=9){day='0'+day}
 	    let date = myDate.getFullYear()+'-'+month+'-'+day;
 		let init=()=>{
-			console.log(localStorage.quanxian);
+			
+		    
 			if(localStorage.quanxian==0 || localStorage.quanxian==1){
+				let curSelect = classNames({
+			      home: isActive('/home'),
+			      image:isActive('/image'),
+			      collection:isActive('/collection'),
+			      memorial:isActive('/memorial'),
+			      list:isActive('/list')||(!!this.props.params.noteid),
+			      addnote:isActive('/addnote')
+			    });
+			    curSelect='.$'+curSelect;
 				return(
-
 					<Menu theme="light" 
 		        	  mode="inline"
 		          	defaultSelectedKeys={[curSelect]} 
@@ -101,23 +100,36 @@ export default class App extends React.Component {
 			              <Icon type="key" />
 			              <span>&nbsp;memorial</span>
 			            </Menu.Item>
-			            <Menu.Item key="study">
+			            <Menu.Item key="list">
 			              <Icon type="key" />
 			              <span>&nbsp;study</span>
+			            </Menu.Item>
+			            <Menu.Item key="addnote">
+			              <Icon type="key" />
+			              <span>&nbsp;addnote</span>
 			            </Menu.Item>
 		            </Menu>
 
 				);
 			}else if(localStorage.quanxian==2){
+				let curSelect = classNames({
+			      list:isActive('/list')||(!!this.props.params.noteid),
+			      addnote:isActive('/addnote')
+			    });
+		   		 curSelect='.$'+curSelect;
 				return(
 					<Menu theme="light" 
 		        	  mode="inline"
 		          	defaultSelectedKeys={[curSelect]} 
 		              onClick={this.onSelect.bind(this)} 
-		              selectedKeys={[curSelectstudy]}>
-			            <Menu.Item key="study">
+		              selectedKeys={[curSelect]}>
+			            <Menu.Item key="list">
 			              <Icon type="key" />
-			              <span>&nbsp;study</span>
+			              <span>&nbsp;List</span>
+			            </Menu.Item>
+			            <Menu.Item key="addnote">
+			              <Icon type="key" />
+			              <span>&nbsp;addnote</span>
 			            </Menu.Item>
 					</Menu>
 				);

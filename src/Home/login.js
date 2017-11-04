@@ -44,7 +44,7 @@ export default class HOME extends React.Component {
 					}else if(res.data.quanxian==1){
 						this.context.router.push(`/home`);
 					}else if(res.data.quanxian==2){
-						this.context.router.push(`/study`);
+						this.context.router.push(`/list`);
 						message.warning('您的权限只能访问Blog！！');
 					}
 					
@@ -95,9 +95,22 @@ export default class HOME extends React.Component {
 		});
 	}
 	Yes(){
-		this.setState({
-			visible1:true
-		});
+		if(localStorage.quanxian){
+			console.log(localStorage.quanxian);
+			if(localStorage.quanxian==0){
+				this.context.router.push(`/lovehome`);
+			}else if(localStorage.quanxian==1){
+				this.context.router.push(`/home`);
+			}else if(localStorage.quanxian==2){
+				this.context.router.push(`/list`);
+				message.warning('您的权限只能访问Blog！！');
+			}
+		}else{
+			this.setState({
+				visible1:true
+			});
+		}
+		
 	}
 	zhuce(){
 		if(this.state.zhuceuser==''){
@@ -138,7 +151,7 @@ export default class HOME extends React.Component {
 	render(){
 		return(
 			<div styleName="login">
-				<img src={require('../lib/home3.jpg')} alt='login_background'/>
+				<img src={require('../lib/home7.jpg')} alt='login_background'/>
 				<div styleName="center">
 					<div styleName="header">
 						<p styleName="header_title">蒋味芳的个人网站</p>
@@ -148,19 +161,19 @@ export default class HOME extends React.Component {
 						<div styleName="content" onClick={this.Yes.bind(this)}>
 							<Row>
 								<Col span={2}><Icon type="double-right" /></Col>
-								<Col span={20}>网站首页(Home)   [仅自己观看]</Col>
+								<Col span={20}>网站首页(Home)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[仅自己观看]</Col>
 							</Row>
 						</div>
 						<div styleName="content" onClick={this.Yes.bind(this)}>
 							<Row>
 								<Col span={2}><Icon type="double-right" /></Col>
-								<Col span={20}>主体内容(Content)   [需要特殊账号]</Col>
+								<Col span={20}>主体内容(Content)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[需要特殊账号]</Col>
 							</Row>
 						</div>
 						<div styleName="content" onClick={this.Yes.bind(this)}>
 							<Row>
 								<Col span={2}><Icon type="double-right" /></Col>
-								<Col span={20}><p>学习笔记(Blog)   [账号：ceshi2，密码：ceshi2]</p></Col>
+								<Col span={20}><p>学习笔记(Blog)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[账号：ceshi2，密码：ceshi2]</p></Col>
 							</Row>
 						</div>
 					</div>

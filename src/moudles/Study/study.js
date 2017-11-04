@@ -76,7 +76,7 @@ export default class Study extends React.Component {
 		  title: 'Title',
 		  dataIndex: 'title',
 		  render:(text,record)=>{
-                return (<Link to={`/study/note/${record.id}`}>{text}</Link>)
+                return (<Link to={`/list/${record.id}`}>{text}</Link>)
             }
 			}, {
 		  title: 'Time',
@@ -104,10 +104,10 @@ export default class Study extends React.Component {
 		};
 		return(
 			<div styleName="all">
-				<Tabs defaultActiveKey="1">
-				    <TabPane tab="笔记列表" key="1"><Table columns={columns} dataSource={data} size="middle" /></TabPane>
-				    <TabPane tab="其他操作" key="2">{Other()}</TabPane>
-				</Tabs>
+				{/*<Tabs defaultActiveKey="1">*/}
+				    {/*<TabPane tab="笔记列表" key="1">*/}<Table columns={columns} dataSource={data} size="middle" />{/*</TabPane>*/}
+				   {/* <TabPane tab="其他操作" key="2">{Other()}</TabPane>*/}
+				{/*</Tabs>*/}
 				
 			</div>
 		);
